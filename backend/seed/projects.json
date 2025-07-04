@@ -1,0 +1,22 @@
+[
+    {
+        "name": "E-commerce",
+        "description": "Frontend en React, backend en Node.js",
+        "url": "https://ecommerce.example.com"
+    },
+    {
+        "name": "Blog Personal",
+        "description": "Desarrollado con Next.js y PostgreSQL",
+        "url": "https://blog.example.com"
+    },
+    {
+        "name": "Gestor de Tareas",
+        "description": "Aplicación para gestión de tareas con Vue y Express",
+        "url": "https://tasks.example.com"
+    },
+    {
+        "name": "Portafolio",
+        "description": "Mi sitio personal hecho con HTML, CSS y JS puro",
+        "url": "https://sebatapia.dev"
+    }
+]
