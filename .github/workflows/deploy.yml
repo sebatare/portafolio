@@ -24,7 +24,7 @@ jobs:
 
             # 1. Detener la aplicación
             echo "Deteniendo la aplicación..."
-            sudo -u deployuser pm2 stop portafolio-backend || true
+            sudo -u deployuser /home/deployuser/.nvm/versions/node/v22.17.0/bin/pm2 stop portafolio-backend || true
 
             # 2. Navegar al directorio de la aplicación y actualizar código
             echo "Actualizando código..."
@@ -34,13 +34,12 @@ jobs:
             # 3. Instalar dependencias si es necesario
             # Usa la opción --prefix para instalar las dependencias en los subdirectorios
             echo "Instalando dependencias..."
-            sudo -u deployuser npm install --prefix /home/deployuser/portafolio/frontend
-            sudo -u deployuser npm install --prefix /home/deployuser/portafolio/backend
+            sudo -u deployuser /home/deployuser/.nvm/versions/node/v22.17.0/bin/npm install --prefix /home/deployuser/portafolio/frontend
+            sudo -u deployuser /home/deployuser/.nvm/versions/node/v22.17.0/bin/npm install --prefix /home/deployuser/portafolio/backend
 
             # 3.5 Actualizar frontend
             echo "Actualizando frontend..."
-            # Usa 'sudo -u deployuser bash -c "..."' para ejecutar múltiples comandos en un solo shell
-            sudo -u deployuser bash -c "cd /home/deployuser/portafolio/frontend && npm run build"
+            sudo -u deployuser bash -c "cd /home/deployuser/portafolio/frontend && /home/deployuser/.nvm/versions/node/v22.17.0/bin/npm run build"
 
             # 4. Reiniciar Nginx
             # Nginx es un servicio del sistema y debe ser reiniciado con sudo (como root)
@@ -54,6 +53,6 @@ jobs:
 
             # 6. Iniciar la aplicación de nuevo
             echo "Iniciando la aplicación..."
-            sudo -u deployuser pm2 start portafolio-backend || true 
+            sudo -u deployuser /home/deployuser/.nvm/versions/node/v22.17.0/bin/pm2 start portafolio-backend || true 
 
             echo "Despliegue completado."
