@@ -4,7 +4,29 @@ import pool from "../db";
 
 export const getProjects = async (req: Request, res: Response) => {
   try {
-    const result = await pool.query(`SELECT * FROM "project" ORDER BY "createDate" DESC`);
+    const result = await pool.query(`
+  SELECT 
+    p.id,
+    p.uuid,
+    p.name,
+    p.description,
+    p.url,
+    p.repository,
+    p."createDate",
+    p."updateDate",
+    COALESCE(
+      json_agg(
+        json_build_object('id', t.id, 'name', t.name)
+      ) FILTER (WHERE t.id IS NOT NULL),
+      '[]'
+    ) AS technologies
+  FROM "project" p
+  LEFT JOIN "project_technology" pt ON pt.project_id = p.id
+  LEFT JOIN "technology" t ON t.id = pt.technology_id
+  GROUP BY p.id
+  ORDER BY p."id" ASC
+`);
+
     res.json(result.rows);
   } catch (error) {
     res.status(500).json({ message: "Error al obtener los proyectos" });

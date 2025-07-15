@@ -1,0 +1,51 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main # O la rama que uses para producción
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: SSH and deploy
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          echo "Desplegando la aplicación en el servidor EC2..."
+
+          # ... (configuración de SSH)
+
+          # Conectarse y ejecutar comandos
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $SSH_USER@$SSH_HOST '
+            # Los siguientes comandos se ejecutan como `deployuser` usando sudo
+            
+            # 1. Detener la aplicación
+            echo "Deteniendo la aplicación..."
+            sudo -u deployuser pm2 stop myapp || true
+
+            # 2. Navegar al directorio de la aplicación y actualizar código
+            echo "Actualizando código..."
+            sudo -u deployuser git -C /home/deployuser/portafolio pull
+
+            # 3. Instalar dependencias si es necesario
+            # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/frontend
+            # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/backend
+
+            # 4. MIGRACIÓN DE LA BASE DE DATOS
+            echo "Ejecutando migración de base de datos..."
+            #sudo -u deployuser node /home/deployuser/portafolio/migrate.js
+
+            # 5. Iniciar la aplicación de nuevo
+            echo "Iniciando la aplicación..."
+            sudo -u deployuser pm2 restart portafolio-backend || true 
+            
+            echo "Despliegue completado."
+          '

@@ -2,21 +2,25 @@
     {
         "name": "E-commerce",
         "description": "Frontend en React, backend en Node.js",
-        "url": "https://ecommerce.example.com"
+        "url": "https://ecommerce.example.com",
+        "technologies": ["Next.js", "Node.js", "PostgreSQL"]
     },
     {
         "name": "Blog Personal",
         "description": "Desarrollado con Next.js y PostgreSQL",
-        "url": "https://blog.example.com"
+        "url": "https://blog.example.com",
+        "technologies": [".NET", "PostgreSQL"]
     },
     {
         "name": "Gestor de Tareas",
         "description": "Aplicación para gestión de tareas con Vue y Express",
-        "url": "https://tasks.example.com"
+        "url": "https://tasks.example.com",
+        "technologies": [".NET", "PostgreSQL"]
     },
     {
         "name": "Portafolio",
         "description": "Mi sitio personal hecho con HTML, CSS y JS puro",
-        "url": "https://sebatapia.dev"
+        "url": "https://sebatapia.dev",
+        "technologies": ["Node.js", "PostgreSQL"]
     }
 ]
