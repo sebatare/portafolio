@@ -35,6 +35,12 @@ jobs:
             # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/frontend
             # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/backend
 
+            # 3.5 Actualizar frontend
+            echo "Actualizando frontend..."
+            sudo -u deployuser cd /home/deployuser/portafolio/frontend && npm run build
+            sudo -u deployuser nginx -t
+            sudo -u deployuser systemctl restart nginx
+
             # 4. MIGRACIÓN DE LA BASE DE DATOS
             echo "Ejecutando migración de base de datos..."
             # sudo -u deployuser node /home/deployuser/portafolio/migrate.js
