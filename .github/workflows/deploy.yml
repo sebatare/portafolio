@@ -29,11 +29,13 @@ jobs:
 
             # 2. Navegar al directorio de la aplicación y actualizar código
             echo "Actualizando código..."
+            sudo -u deployuser git -C /home/deployuser/portafolio fetch --all
+            # sudo -u deployuser git -C /home/deployuser/portafolio reset
             sudo -u deployuser git -C /home/deployuser/portafolio pull
 
             # 3. Instalar dependencias si es necesario
-            # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/frontend
-            # sudo -u deployuser npm install --prefix /home/deployuser/portafolio/backend
+            sudo -u deployuser npm install /home/deployuser/portafolio/frontend
+            sudo -u deployuser npm install /home/deployuser/portafolio/backend
 
             # 3.5 Actualizar frontend
             echo "Actualizando frontend..."
