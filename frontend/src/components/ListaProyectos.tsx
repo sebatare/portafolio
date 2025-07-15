@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Project } from '../types/Project'; // Adjust path if necessary
+import type { Project } from '../types/Project';
 
 const ListaProyectos = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -48,12 +48,12 @@ const ListaProyectos = () => {
         <div>
           {projects.map((project) => (
             <div key={project.id} className="group my-5 py-1">
-              <h3 title={`Tecnologías: ${project.technologies.map(tech => tech.name).join(', ')}`} className="group-hover:underline transition-all duration-200 text-xl">
+              {/* SOLUCIÓN APLICADA AQUÍ: Usa el operador de encadenamiento opcional `?.` */}
+              <h3 title={`Tecnologías: ${project.technologies?.map(tech => tech.name).join(', ') || 'N/A'}`} className="group-hover:underline transition-all duration-200 text-xl">
                 {project.name}
               </h3>
               <p>{project.description}</p>
 
-              {/* SOLUCIÓN APLICADA AQUÍ */}
               <a className='hover:underline' href={project.url || '#'}> {project.url} </a>
               <br />
               <a className='hover:underline' href={project.repository || '#'}>{project.repository}</a>
