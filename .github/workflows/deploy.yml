@@ -14,41 +14,46 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy with SSH
-        uses: appleboy/ssh-action@v0.1.7 # <-- Esta es la acción que manejará el SSH
+        uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # Los siguientes comandos se ejecutan en tu servidor EC2
-            
+
             # 1. Detener la aplicación
             echo "Deteniendo la aplicación..."
-            # Asegúrate de usar el comando correcto para tu aplicación (ej. pm2, systemd)
             sudo -u deployuser pm2 stop portafolio-backend || true
 
             # 2. Navegar al directorio de la aplicación y actualizar código
             echo "Actualizando código..."
             sudo -u deployuser git -C /home/deployuser/portafolio fetch --all
-            # sudo -u deployuser git -C /home/deployuser/portafolio reset
             sudo -u deployuser git -C /home/deployuser/portafolio pull
 
             # 3. Instalar dependencias si es necesario
-            sudo -u deployuser npm install /home/deployuser/portafolio/frontend
-            sudo -u deployuser npm install /home/deployuser/portafolio/backend
+            # Usa la opción --prefix para instalar las dependencias en los subdirectorios
+            echo "Instalando dependencias..."
+            sudo -u deployuser npm install --prefix /home/deployuser/portafolio/frontend
+            sudo -u deployuser npm install --prefix /home/deployuser/portafolio/backend
 
             # 3.5 Actualizar frontend
             echo "Actualizando frontend..."
-            sudo -u deployuser cd /home/deployuser/portafolio/frontend && npm run build
-            sudo -u deployuser nginx -t
-            sudo -u deployuser systemctl restart nginx
+            # Usa 'sudo -u deployuser bash -c "..."' para ejecutar múltiples comandos en un solo shell
+            sudo -u deployuser bash -c "cd /home/deployuser/portafolio/frontend && npm run build"
 
-            # 4. MIGRACIÓN DE LA BASE DE DATOS
+            # 4. Reiniciar Nginx
+            # Nginx es un servicio del sistema y debe ser reiniciado con sudo (como root)
+            echo "Reiniciando Nginx..."
+            sudo nginx -t
+            sudo systemctl restart nginx
+
+            # 5. MIGRACIÓN DE LA BASE DE DATOS
             echo "Ejecutando migración de base de datos..."
             # sudo -u deployuser node /home/deployuser/portafolio/migrate.js
 
-            # 5. Iniciar la aplicación de nuevo
+            # 6. Iniciar la aplicación de nuevo
             echo "Iniciando la aplicación..."
             sudo -u deployuser pm2 start portafolio-backend || true 
-            
+
             echo "Despliegue completado."
