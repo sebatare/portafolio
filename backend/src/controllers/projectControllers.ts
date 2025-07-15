@@ -11,7 +11,6 @@ export const getProjects = async (req: Request, res: Response) => {
     p.name,
     p.description,
     p.url,
-    p.repository,
     p."createDate",
     p."updateDate",
     COALESCE(
@@ -29,6 +28,7 @@ export const getProjects = async (req: Request, res: Response) => {
 
     res.json(result.rows);
   } catch (error) {
+    console.error("Error al obtener los proyectos:", error);
     res.status(500).json({ message: "Error al obtener los proyectos" });
   }
 };
