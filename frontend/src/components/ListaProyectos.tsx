@@ -54,9 +54,9 @@ const ListaProyectos = () => {
               <p>{project.description}</p>
 
               {/* SOLUCIÓN APLICADA AQUÍ */}
-              <a className='hover:underline' href={project.url}> {project.url} </a>
+              <a className='hover:underline' href={project.url || '#'}> {project.url} </a>
               <br />
-              <a className='hover:underline' href={project.repository}>{project.repository}</a>
+              <a className='hover:underline' href={project.repository || '#'}>{project.repository}</a>
 
             </div>
           ))}
