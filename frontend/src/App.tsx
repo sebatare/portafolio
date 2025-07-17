@@ -8,7 +8,7 @@ const App = () => {
       <div className="bg-white flex justify-center grow">
         <div className="mx-auto max-w-80 md:max-w-1/3">
           <h1 className="text-5xl text-center font-light my-10 hover:underline decoration-1">
-            Portafolio
+            Portafolissso
           </h1>
           <Presentacion />
           <ListaProyectos />
