@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 app.use("/api/projects", projectRoutes); // ✅ usa el router
 
 /* SERVER */
-const port = Number(process.env.PORT) || 3002;
+const port = Number(process.env.PORT) || 3003;
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running on port ${port}`);
 });
