@@ -2,49 +2,49 @@ export const presentationContent = {
   es: {
     aboutTitle: "Sobre mí",
     about:
-      "Hola, soy Sebastián Andrés Tapia Rebolledo, chileno, Ingeniero en Informática y desarrollador Fullstack con experiencia en desarrollo web, mobile y backend. Actualmente vivo en Berlín, Alemania, con una visa Working Holiday válida hasta septiembre de 2026. Me especializo principalmente en backend y arquitectura de aplicaciones, aunque también disfruto construir interfaces modernas y claras. He trabajado con tecnologías como Node.js, .NET, React, React Native, PostgreSQL y AWS, desarrollando proyectos como e-commerce, sistemas de reservas, aplicaciones móviles y APIs escalables.",
+      "Soy Sebastian Andres Tapia Rebolledo, Ingeniero en Informatica y Fullstack Developer enfocado en backend engineering. Actualmente vivo en Berlin bajo visa Working Holiday, donde continuo desarrollando software mientras fortalezco ingles profesional y aleman. Mi enfoque esta en construir sistemas mantenibles: APIs robustas, modelado de datos claro y arquitectura limpia con criterio de produccion.",
 
     goalsTitle: "Objetivo profesional",
     goals:
-      "Mi objetivo es trabajar como Software Engineer o Backend Developer en un entorno internacional donde pueda aportar desarrollando sistemas robustos, escalables y mantenibles. Busco seguir creciendo profesionalmente en áreas como arquitectura de software, cloud computing y DevOps, mientras continúo mejorando mis habilidades técnicas y de comunicación en inglés y alemán.",
+      "Busco consolidarme como Software Engineer con especializacion backend en equipos internacionales. Quiero aportar en productos reales donde arquitectura, cloud y automatizacion tengan impacto directo, mientras sigo profundizando en AWS, CI/CD, Linux y system design.",
 
     skillsTitle: "Habilidades",
 
     challengeTitle: "Reto actual",
     challenge:
-      "Mi principal desafío actual es consolidar experiencia profesional internacional en Europa, trabajando en equipos multiculturales y utilizando inglés como idioma principal. También estoy enfocado en profundizar conocimientos en arquitectura backend, buenas prácticas de despliegue, observabilidad y servicios cloud.",
+      "Mi reto principal es convertir esta etapa de migracion en crecimiento tecnico de largo plazo: adaptarme rapido a un nuevo contexto profesional y cultural, mantener disciplina de aprendizaje y transformar curiosidad por infraestructura en experiencia de ingenieria aplicada.",
   },
 
   en: {
     aboutTitle: "About me",
     about:
-      "Hi, I am Sebastián Andrés Tapia Rebolledo from Chile, a Computer Engineer and Fullstack Developer with experience in web, mobile, and backend development. I am currently living in Berlin, Germany, on a Working Holiday visa valid until September 2026. My main focus is backend engineering and application architecture, while still enjoying building modern and clean user interfaces. I have worked with technologies such as Node.js, .NET, React, React Native, PostgreSQL, and AWS, developing projects including e-commerce platforms, reservation systems, mobile apps, and scalable APIs.",
+      "I am Sebastian Andres Tapia Rebolledo, a Computer Engineer and Fullstack Developer with a backend-oriented mindset. I am currently based in Berlin on a Working Holiday visa, building software while improving professional English and German. I focus on maintainable systems: robust APIs, clean data modeling, and architecture decisions that hold in production.",
 
     goalsTitle: "Professional goal",
     goals:
-      "My goal is to work as a Software Engineer or Backend Developer in an international environment where I can contribute by building robust, scalable, and maintainable systems. I want to continue growing professionally in software architecture, cloud computing, and DevOps while improving both my technical and communication skills in English and German.",
+      "My goal is to grow as a Software Engineer with strong backend depth in international teams. I want to contribute to real products where architecture, cloud, and automation have measurable impact, while continuing to deepen skills in AWS, CI/CD, Linux, and system design.",
 
     skillsTitle: "Skills",
 
     challengeTitle: "Current challenge",
     challenge:
-      "My current challenge is to strengthen international professional experience in Europe, working with multicultural teams and using English as the main working language. I am also focused on deepening my backend architecture knowledge, deployment best practices, observability, and cloud services.",
+      "My current challenge is turning this migration stage into long-term engineering growth: adapting quickly to a new professional and cultural context, keeping a disciplined learning rhythm, and converting infrastructure curiosity into applied engineering experience.",
   },
 
   de: {
     aboutTitle: "Über mich",
     about:
-      "Hallo, ich bin Sebastián Andrés Tapia Rebolledo aus Chile, Informatikingenieur und Fullstack-Entwickler mit Erfahrung in Web-, Mobile- und Backend-Entwicklung. Derzeit lebe ich in Berlin mit einem Working-Holiday-Visum, das bis September 2026 gültig ist. Mein Schwerpunkt liegt vor allem auf Backend-Entwicklung und Softwarearchitektur, gleichzeitig entwickle ich gerne moderne und klare Benutzeroberflächen. Ich habe mit Technologien wie Node.js, .NET, React, React Native, PostgreSQL und AWS gearbeitet und Projekte wie E-Commerce-Plattformen, Reservierungssysteme, mobile Anwendungen und skalierbare APIs entwickelt.",
+      "Ich bin Sebastian Andres Tapia Rebolledo, Informatikingenieur und Fullstack Entwickler mit starkem Backend-Fokus. Derzeit lebe ich in Berlin mit einem Working-Holiday-Visum und entwickle weiter Software, wahrend ich mein technisches Englisch und Deutsch verbessere. Mein Schwerpunkt liegt auf wartbaren Systemen: robuste APIs, klares Datenmodell und Architekturentscheidungen fur produktionsnahe Umgebungen.",
 
     goalsTitle: "Berufliches Ziel",
     goals:
-      "Mein Ziel ist es, als Software Engineer oder Backend Developer in einem internationalen Umfeld zu arbeiten, in dem ich robuste, skalierbare und wartbare Systeme entwickeln kann. Ich möchte mich weiterhin in den Bereichen Softwarearchitektur, Cloud Computing und DevOps weiterentwickeln und gleichzeitig meine technischen sowie sprachlichen Fähigkeiten in Englisch und Deutsch verbessern.",
+      "Mein Ziel ist die Weiterentwicklung als Software Engineer mit klarer Backend-Expertise in internationalen Teams. Ich mochte an realen Produkten arbeiten, bei denen Architektur, Cloud und Automatisierung messbaren Mehrwert liefern, und mich in AWS, CI/CD, Linux und Systemdesign vertiefen.",
 
     skillsTitle: "Fähigkeiten",
 
     challengeTitle: "Aktuelle Herausforderung",
     challenge:
-      "Meine aktuelle Herausforderung besteht darin, internationale Berufserfahrung in Europa zu festigen, in multikulturellen Teams zu arbeiten und Englisch als Hauptarbeitssprache zu verwenden. Gleichzeitig vertiefe ich meine Kenntnisse in Backend-Architektur, Deployment-Best-Practices, Observability und Cloud-Services.",
+      "Meine aktuelle Herausforderung ist es, diese Migrationsphase in langfristiges Engineering-Wachstum umzuwandeln: schnelle Anpassung an ein neues professionelles und kulturelles Umfeld, diszipliniertes Lernen und der Aufbau praktischer Infrastruktur-Erfahrung.",
   },
 };
 

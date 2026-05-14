@@ -22,3 +22,10 @@ frontend/.env
 backend/.env
 frontend/.next/
 node_modules
+
+# Markdown sensible (perfil/notas internas)
+backend/me.md
+backend/redesign-frontmd-chatgpt.md
+backend/*sensitive*.md
+backend/*private*.md
+backend/*secret*.md

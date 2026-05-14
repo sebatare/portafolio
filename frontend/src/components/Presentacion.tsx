@@ -9,25 +9,25 @@ const Presentacion = ({ language }: PresentacionProps) => {
   const content = presentationContent[language];
 
   return (
-    <section className="mb-10 flex flex-col gap-8">
-      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
-        <h2 className="mb-4 text-2xl font-extrabold text-cyan-600 flex items-center gap-2">
-          <span className="inline-block w-2 h-6 bg-gradient-to-b from-black to-neutral-700 rounded-full mr-2" />
+    <section id="about" className="mb-12 flex flex-col gap-7">
+      <div className="rounded-3xl bg-[var(--surface-1)] p-8 md:p-10 border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:-translate-y-1">
+        <h2 className="mb-4 text-2xl md:text-3xl font-semibold text-[var(--text-primary)] flex items-center gap-2">
+          <span className="inline-block w-2 h-6 bg-[var(--accent-primary)] rounded-full mr-2" />
           {content.aboutTitle}
         </h2>
-        <p className="mb-6 text-justify text-cyan-800 leading-relaxed">{content.about}</p>
-        <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.goalsTitle}</h3>
-        <p className="mb-6 text-justify text-cyan-800">{content.goals}</p>
+        <p className="mb-7 text-[var(--text-secondary)] leading-relaxed">{content.about}</p>
+        <h3 className="mb-2 text-lg font-semibold text-[var(--accent-primary)]">{content.goalsTitle}</h3>
+        <p className="text-[var(--text-secondary)]">{content.goals}</p>
       </div>
 
-      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="rounded-3xl bg-[var(--surface-2)] p-8 md:p-10 border border-white/10 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
         <div>
-          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.skillsTitle}</h3>
+          <h3 className="mb-3 text-lg font-semibold text-[var(--accent-secondary)]">{content.skillsTitle}</h3>
           <ul className="mb-6 flex flex-wrap gap-2">
             {presentationSkills.map((skill) => (
               <li
                 key={skill}
-                className="rounded-full border border-black/30 bg-black/5 px-3 py-1 text-sm font-medium text-black/90 shadow-sm transition hover:bg-black/10 hover:text-black"
+                className="rounded-full border border-white/15 bg-white/6 px-3 py-1 text-sm font-medium text-[var(--text-secondary)] shadow-sm transition hover:bg-white/10 hover:text-[var(--text-primary)]"
               >
                 {skill}
               </li>
@@ -35,8 +35,8 @@ const Presentacion = ({ language }: PresentacionProps) => {
           </ul>
         </div>
         <div>
-          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.challengeTitle}</h3>
-          <p className="text-justify text-neutral-900">{content.challenge}</p>
+          <h3 className="mb-2 text-lg font-semibold text-[var(--accent-secondary)]">{content.challengeTitle}</h3>
+          <p className="text-[var(--text-secondary)] leading-relaxed">{content.challenge}</p>
         </div>
       </div>
     </section>
