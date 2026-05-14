@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import type { Project } from '../types/Project'; // Adjust path and import Technology
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'; // Fallback for VITE_API_URL
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api'; // Fallback for VITE_API_URL
 
 const Admin = () => {
     const [projects, setProjects] = useState<Project[]>([]);
