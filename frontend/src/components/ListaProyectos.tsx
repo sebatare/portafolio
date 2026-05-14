@@ -90,48 +90,47 @@ const ListaProyectos = ({ language }: ListaProyectosProps) => {
   }
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-5 text-2xl font-semibold">{text.title}</h2>
+    <section className="py-20" id="projects">
+      <h2 className="mb-14 text-4xl md:text-5xl font-semibold text-white tracking-tight text-center">{text.title}</h2>
       {projects.length > 0 ? (
-        <div className="space-y-4">
+        <div className="grid gap-10 md:grid-cols-2">
           {projects.map((project) => (
-            <article key={project.id} className="rounded-xl border border-slate-200 p-4 transition hover:bg-slate-50">
-              <h3 title={`${text.technologies}: ${project.technologies?.map(tech => tech.name).join(', ') || text.notAvailable}`} className="text-xl font-semibold">
-                {project.name}
-              </h3>
-              <p className="mt-1 text-slate-700">{project.description ?? text.notAvailable}</p>
-
-              <p className="mt-2 text-sm text-slate-500">
+            <article
+              key={project.id}
+              className="group rounded-3xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-500 p-8 flex flex-col min-h-[220px]"
+            >
+              <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition">{project.name}</h3>
+              <p className="text-zinc-400 text-lg leading-relaxed mb-4 line-clamp-3">{project.description ?? text.notAvailable}</p>
+              <p className="text-zinc-500 text-sm mb-4">
                 {text.technologies}: {project.technologies?.map(tech => tech.name).join(', ') || text.notAvailable}
               </p>
-
-              <div className="mt-3 flex flex-wrap gap-3 text-sm">
-                {project.url ? (
-                  <a className='rounded-lg border border-slate-300 px-3 py-1 font-medium hover:bg-slate-100' href={project.url} target="_blank" rel="noreferrer">
+              <div className="flex gap-4 mt-auto">
+                {project.url && (
+                  <a
+                    className="inline-block px-4 py-2 rounded-full border border-cyan-400 text-cyan-400 font-medium text-sm hover:bg-cyan-400 hover:text-black transition"
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {text.demo}
                   </a>
-                ) : (
-                  <span className="rounded-lg border border-dashed border-slate-300 px-3 py-1 text-slate-500">
-                    {text.demo}: {text.notAvailable}
-                  </span>
                 )}
-
-                {project.repository ? (
-                  <a className='rounded-lg border border-slate-300 px-3 py-1 font-medium hover:bg-slate-100' href={project.repository} target="_blank" rel="noreferrer">
+                {project.repository && (
+                  <a
+                    className="inline-block px-4 py-2 rounded-full border border-blue-500 text-blue-500 font-medium text-sm hover:bg-blue-500 hover:text-black transition"
+                    href={project.repository}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {text.repository}
                   </a>
-                ) : (
-                  <span className="rounded-lg border border-dashed border-slate-300 px-3 py-1 text-slate-500">
-                    {text.repository}: {text.notAvailable}
-                  </span>
                 )}
               </div>
-
             </article>
           ))}
         </div>
       ) : (
-        <p className="text-center">{text.noProjects}</p>
+        <p className="text-center text-zinc-500/80">{text.noProjects}</p>
       )}
     </section>
   );

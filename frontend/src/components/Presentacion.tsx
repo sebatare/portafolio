@@ -1,71 +1,95 @@
-
 import type { Language } from "../App";
+import { presentationContent, presentationSkills } from "../content/presentationContent.js";
 
 type PresentacionProps = {
   language: Language;
 };
 
 const Presentacion = ({ language }: PresentacionProps) => {
-  const content = {
-    es: {
-      aboutTitle: "Sobre mi",
-      about:
-        "Hola, soy Sebastian Tapia, chileno, ingeniero informatico y desarrollador fullstack. Actualmente estoy en Alemania con working holiday, estudiando y profundizando especialmente en backend, sin dejar de lado el desarrollo de interfaces utiles y claras.",
-      goalsTitle: "Objetivo profesional",
-      goals:
-        "Quiero aportar como fullstack con foco backend, construir soluciones confiables de punta a punta y seguir creciendo en Cloud/DevOps para disenar productos robustos y escalables.",
-      skillsTitle: "Habilidades",
-      challengeTitle: "Reto actual",
-      challenge:
-        "Mi reto es consolidar experiencia internacional trabajando en ingles, mejorar practicas de arquitectura y elevar la calidad de despliegues y observabilidad en entornos reales.",
-    },
-    en: {
-      aboutTitle: "About me",
-      about:
-        "Hi, I am Sebastian Tapia, from Chile, a computer engineer and fullstack developer. I am currently in Germany on a working holiday, studying and going deeper into backend development while still building clear and practical user interfaces.",
-      goalsTitle: "Professional goal",
-      goals:
-        "I want to contribute as a backend-focused fullstack developer, build reliable end-to-end solutions, and keep growing in Cloud/DevOps to design robust and scalable products.",
-      skillsTitle: "Skills",
-      challengeTitle: "Current challenge",
-      challenge:
-        "My current challenge is to strengthen international experience working in English, improve architecture practices, and raise deployment and observability quality in real environments.",
-    },
-    de: {
-      aboutTitle: "Uber mich",
-      about:
-        "Hallo, ich bin Sebastian Tapia aus Chile, Informatikingenieur und Fullstack-Entwickler. Zurzeit bin ich mit einem Working-Holiday-Visum in Deutschland, lerne weiter und vertiefe mich vor allem im Backend, wahrend ich weiterhin klare und nutzliche Benutzeroberflachen entwickle.",
-      goalsTitle: "Berufliches Ziel",
-      goals:
-        "Ich mochte als Fullstack-Entwickler mit Backend-Fokus beitragen, zuverlassige End-to-End-Losungen bauen und mich im Bereich Cloud/DevOps weiterentwickeln, um robuste und skalierbare Produkte zu gestalten.",
-      skillsTitle: "Fahigkeiten",
-      challengeTitle: "Aktuelle Herausforderung",
-      challenge:
-        "Meine aktuelle Herausforderung ist es, internationale Erfahrung in englischer Arbeitssprache zu festigen, Architekturpraktiken zu verbessern und die Qualitat von Deployments und Observability in realen Umgebungen zu steigern.",
-    },
-  }[language];
-
-  const skills = ["Django", "Node", "React", "PostgreSQL", "AWS", "Linux"];
+  const content = presentationContent[language];
 
   return (
-    <section className="mb-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-3 text-2xl font-semibold">{content.aboutTitle}</h2>
-      <p className="mb-6 text-justify text-slate-700">{content.about}</p>
+    <section className="mb-10 flex flex-col gap-8">
+      {/* Tarjeta de presentación */}
+      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <h2 className="mb-4 text-2xl font-extrabold text-cyan-600 flex items-center gap-2">
+          <span className="inline-block w-2 h-6 bg-gradient-to-b from-black to-neutral-700 rounded-full mr-2" />
+          {content.aboutTitle}
+        </h2>
+        <p className="mb-6 text-justify text-cyan-800 leading-relaxed">{content.about}</p>
+        <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.goalsTitle}</h3>
+        <p className="mb-6 text-justify text-cyan-800">{content.goals}</p>
+      </div>
 
-      <h3 className="mb-2 text-xl font-semibold">{content.goalsTitle}</h3>
-      <p className="mb-6 text-justify text-slate-700">{content.goals}</p>
+      {/* Tarjeta de habilidades y reto */}
+      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div>
+          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.skillsTitle}</h3>
+          <ul className="mb-6 flex flex-wrap gap-2">
+            {presentationSkills.map((skill) => (
+              <li
+                key={skill}
+                className="rounded-full border border-black/30 bg-black/5 px-3 py-1 text-sm font-medium text-black/90 shadow-sm transition hover:bg-black/10 hover:text-black"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.challengeTitle}</h3>
+          <p className="text-justify text-neutral-900">{content.challenge}</p>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-      <h3 className="mb-2 text-xl font-semibold">{content.skillsTitle}</h3>
-      <ul className="mb-6 flex flex-wrap gap-2">
-        {skills.map((skill) => (
-          <li key={skill} className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-sm">
-            {skill}
-          </li>
-        ))}
-      </ul>
+export default Presentacion;
 
-      <h3 className="mb-2 text-xl font-semibold">{content.challengeTitle}</h3>
-      <p className="text-justify text-slate-700">{content.challenge}</p>
+import type { Language } from "../App";
+import { presentationContent, presentationSkills } from "../content/presentationContent.js";
+
+type PresentacionProps = {
+  language: Language;
+};
+
+const Presentacion = ({ language }: PresentacionProps) => {
+  const content = presentationContent[language];
+
+  return (
+    <section className="mb-10 flex flex-col gap-8">
+      {/* Tarjeta de presentación */}
+      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <h2 className="mb-4 text-2xl font-extrabold text-cyan-600 flex items-center gap-2">
+          <span className="inline-block w-2 h-6 bg-gradient-to-b from-black to-neutral-700 rounded-full mr-2" />
+          {content.aboutTitle}
+        </h2>
+        <p className="mb-6 text-justify text-cyan-800 leading-relaxed">{content.about}</p>
+        <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.goalsTitle}</h3>
+        <p className="mb-6 text-justify text-cyan-800">{content.goals}</p>
+      </div>
+
+      {/* Tarjeta de habilidades y reto */}
+      <div className="rounded-2xl bg-white/80 p-8 shadow-md border border-cyan-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div>
+          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.skillsTitle}</h3>
+          <ul className="mb-6 flex flex-wrap gap-2">
+            {presentationSkills.map((skill) => (
+              <li
+                key={skill}
+                className="rounded-full border border-black/30 bg-black/5 px-3 py-1 text-sm font-medium text-black/90 shadow-sm transition hover:bg-black/10 hover:text-black"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="mb-2 text-lg font-semibold text-cyan-500">{content.challengeTitle}</h3>
+          <p className="text-justify text-neutral-900">{content.challenge}</p>
+        </div>
+      </div>
     </section>
   );
 };
